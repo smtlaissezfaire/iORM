@@ -1,0 +1,10 @@
+iOrm.xcodeproj/project.xcworkspace
+iOrm.xcodeproj/xcuserdata
+
+.DS_Store
+.*.swp
+*.bak
+*.mergesave
+
+#textmate
+*.tmproj

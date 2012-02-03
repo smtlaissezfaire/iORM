@@ -1,0 +1,402 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE41190514DC714C00E3A267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
+		CE41190B14DC714C00E3A267 /* iOrm.m in Sources */ = {isa = PBXBuildFile; fileRef = CE41190A14DC714C00E3A267 /* iOrm.m */; };
+		CE41191314DC714C00E3A267 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41191214DC714C00E3A267 /* SenTestingKit.framework */; };
+		CE41191514DC714C00E3A267 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41191414DC714C00E3A267 /* UIKit.framework */; };
+		CE41191614DC714C00E3A267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
+		CE41191914DC714C00E3A267 /* libiOrm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190114DC714C00E3A267 /* libiOrm.a */; };
+		CE41191F14DC714C00E3A267 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE41191D14DC714C00E3A267 /* InfoPlist.strings */; };
+		CE41192214DC714C00E3A267 /* iOrmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE41192114DC714C00E3A267 /* iOrmTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE41191714DC714C00E3A267 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE4118F814DC714C00E3A267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE41190014DC714C00E3A267;
+			remoteInfo = iOrm;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CE41190114DC714C00E3A267 /* libiOrm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOrm.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE41190414DC714C00E3A267 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CE41190814DC714C00E3A267 /* iOrm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOrm-Prefix.pch"; sourceTree = "<group>"; };
+		CE41190914DC714C00E3A267 /* iOrm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOrm.h; sourceTree = "<group>"; };
+		CE41190A14DC714C00E3A267 /* iOrm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOrm.m; sourceTree = "<group>"; };
+		CE41191114DC714C00E3A267 /* iOrmTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOrmTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE41191214DC714C00E3A267 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE41191414DC714C00E3A267 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE41191C14DC714C00E3A267 /* iOrmTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOrmTests-Info.plist"; sourceTree = "<group>"; };
+		CE41191E14DC714C00E3A267 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CE41192014DC714C00E3A267 /* iOrmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOrmTests.h; sourceTree = "<group>"; };
+		CE41192114DC714C00E3A267 /* iOrmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOrmTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CE4118FE14DC714C00E3A267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE41190514DC714C00E3A267 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE41190D14DC714C00E3A267 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE41191314DC714C00E3A267 /* SenTestingKit.framework in Frameworks */,
+				CE41191514DC714C00E3A267 /* UIKit.framework in Frameworks */,
+				CE41191614DC714C00E3A267 /* Foundation.framework in Frameworks */,
+				CE41191914DC714C00E3A267 /* libiOrm.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE4118F614DC714C00E3A267 = {
+			isa = PBXGroup;
+			children = (
+				CE41190614DC714C00E3A267 /* iOrm */,
+				CE41191A14DC714C00E3A267 /* iOrmTests */,
+				CE41190314DC714C00E3A267 /* Frameworks */,
+				CE41190214DC714C00E3A267 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CE41190214DC714C00E3A267 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CE41190114DC714C00E3A267 /* libiOrm.a */,
+				CE41191114DC714C00E3A267 /* iOrmTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CE41190314DC714C00E3A267 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE41190414DC714C00E3A267 /* Foundation.framework */,
+				CE41191214DC714C00E3A267 /* SenTestingKit.framework */,
+				CE41191414DC714C00E3A267 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE41190614DC714C00E3A267 /* iOrm */ = {
+			isa = PBXGroup;
+			children = (
+				CE41190914DC714C00E3A267 /* iOrm.h */,
+				CE41190A14DC714C00E3A267 /* iOrm.m */,
+				CE41190714DC714C00E3A267 /* Supporting Files */,
+			);
+			path = iOrm;
+			sourceTree = "<group>";
+		};
+		CE41190714DC714C00E3A267 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE41190814DC714C00E3A267 /* iOrm-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE41191A14DC714C00E3A267 /* iOrmTests */ = {
+			isa = PBXGroup;
+			children = (
+				CE41192014DC714C00E3A267 /* iOrmTests.h */,
+				CE41192114DC714C00E3A267 /* iOrmTests.m */,
+				CE41191B14DC714C00E3A267 /* Supporting Files */,
+			);
+			path = iOrmTests;
+			sourceTree = "<group>";
+		};
+		CE41191B14DC714C00E3A267 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE41191C14DC714C00E3A267 /* iOrmTests-Info.plist */,
+				CE41191D14DC714C00E3A267 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CE4118FF14DC714C00E3A267 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CE41190014DC714C00E3A267 /* iOrm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE41192514DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrm" */;
+			buildPhases = (
+				CE4118FD14DC714C00E3A267 /* Sources */,
+				CE4118FE14DC714C00E3A267 /* Frameworks */,
+				CE4118FF14DC714C00E3A267 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iOrm;
+			productName = iOrm;
+			productReference = CE41190114DC714C00E3A267 /* libiOrm.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CE41191014DC714C00E3A267 /* iOrmTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE41192814DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrmTests" */;
+			buildPhases = (
+				CE41190C14DC714C00E3A267 /* Sources */,
+				CE41190D14DC714C00E3A267 /* Frameworks */,
+				CE41190E14DC714C00E3A267 /* Resources */,
+				CE41190F14DC714C00E3A267 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE41191814DC714C00E3A267 /* PBXTargetDependency */,
+			);
+			name = iOrmTests;
+			productName = iOrmTests;
+			productReference = CE41191114DC714C00E3A267 /* iOrmTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CE4118F814DC714C00E3A267 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = CE4118FB14DC714C00E3A267 /* Build configuration list for PBXProject "iOrm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CE4118F614DC714C00E3A267;
+			productRefGroup = CE41190214DC714C00E3A267 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CE41190014DC714C00E3A267 /* iOrm */,
+				CE41191014DC714C00E3A267 /* iOrmTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CE41190E14DC714C00E3A267 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE41191F14DC714C00E3A267 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CE41190F14DC714C00E3A267 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CE4118FD14DC714C00E3A267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE41190B14DC714C00E3A267 /* iOrm.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE41190C14DC714C00E3A267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE41192214DC714C00E3A267 /* iOrmTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE41191814DC714C00E3A267 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE41190014DC714C00E3A267 /* iOrm */;
+			targetProxy = CE41191714DC714C00E3A267 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CE41191D14DC714C00E3A267 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE41191E14DC714C00E3A267 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CE41192314DC714C00E3A267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CE41192414DC714C00E3A267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE41192614DC714C00E3A267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/iOrm.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CE41192714DC714C00E3A267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/iOrm.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CE41192914DC714C00E3A267 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
+				INFOPLIST_FILE = "iOrmTests/iOrmTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CE41192A14DC714C00E3A267 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
+				INFOPLIST_FILE = "iOrmTests/iOrmTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CE4118FB14DC714C00E3A267 /* Build configuration list for PBXProject "iOrm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE41192314DC714C00E3A267 /* Debug */,
+				CE41192414DC714C00E3A267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE41192514DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE41192614DC714C00E3A267 /* Debug */,
+				CE41192714DC714C00E3A267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CE41192814DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrmTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE41192914DC714C00E3A267 /* Debug */,
+				CE41192A14DC714C00E3A267 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CE4118F814DC714C00E3A267 /* Project object */;
+}
