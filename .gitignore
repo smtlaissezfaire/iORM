@@ -1,5 +1,5 @@
-iOrm.xcodeproj/project.xcworkspace
-iOrm.xcodeproj/xcuserdata
+iOrm/iOrm.xcodeproj/project.xcworkspace
+iOrm/iOrm.xcodeproj/xcuserdata
 
 .DS_Store
 .*.swp
@@ -8,3 +8,4 @@ iOrm.xcodeproj/xcuserdata
 
 #textmate
 *.tmproj
+

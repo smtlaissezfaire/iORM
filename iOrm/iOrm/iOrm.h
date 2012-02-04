@@ -7,7 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FMResultSet.h"
 
-@interface iOrm : NSObject
+@interface iOrm : NSObject {
+    int id;
+    BOOL __newRecord__;
+}
+
+@property (nonatomic) int id;
+
++ (FMDatabase *) connection;
++ (NSString *) tableName;
++ (NSArray *) columns;
++ (id) executeSql: (NSString *) sqlString, ...;
++ (id) executeSql: (NSString *) sqlString args: (NSArray *) args;
++ (NSArray *) findBySql: (NSString *) sqlString, ...;
++ (NSArray *) findBySql: (NSString *) sqlString args: (NSArray *) args;
+
+- (BOOL) isNewRecord;
+- (void) __setNewRecord__: (BOOL) val;
+- (BOOL) save;
+- (void) reload;
 
 @end

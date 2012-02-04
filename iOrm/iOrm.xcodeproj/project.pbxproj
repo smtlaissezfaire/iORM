@@ -7,69 +7,192 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA22962C14DF55EE00B79839 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41191214DC714C00E3A267 /* SenTestingKit.framework */; };
+		BA22962E14DF55EE00B79839 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA22962D14DF55EE00B79839 /* UIKit.framework */; };
+		BA22962F14DF55EE00B79839 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
+		BA22963514DF55EE00B79839 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BA22963314DF55EE00B79839 /* InfoPlist.strings */; };
+		BA22964014DF569900B79839 /* iOrmLogicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BA22963F14DF569900B79839 /* iOrmLogicTests.m */; };
+		BA22964414DF56D900B79839 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BA22964314DF56D900B79839 /* User.m */; };
+		BA22964714DF574600B79839 /* libiOrm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190114DC714C00E3A267 /* libiOrm.a */; };
+		BA22964A14DF577B00B79839 /* libfmdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA321A6A14DF44D90000F7FB /* libfmdb.a */; };
+		BA22964C14DF57E800B79839 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA22964B14DF57E800B79839 /* libsqlite3.0.dylib */; };
+		BA22964E14DF582A00B79839 /* libfmdb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA321A6A14DF44D90000F7FB /* libfmdb.a */; };
+		BA22964F14DF583400B79839 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA321A8714DF452E0000F7FB /* libsqlite3.dylib */; };
+		BA321A6B14DF44D90000F7FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
+		BA321A7F14DF45000000F7FB /* fmdb_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = BA321A7614DF45000000F7FB /* fmdb_Prefix.pch */; };
+		BA321A8014DF45000000F7FB /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321A7814DF45000000F7FB /* FMDatabase.h */; };
+		BA321A8114DF45000000F7FB /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321A7914DF45000000F7FB /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA321A8214DF45000000F7FB /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321A7A14DF45000000F7FB /* FMDatabaseAdditions.h */; };
+		BA321A8314DF45000000F7FB /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321A7B14DF45000000F7FB /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA321A8514DF45000000F7FB /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321A7D14DF45000000F7FB /* FMResultSet.h */; };
+		BA321A8614DF45000000F7FB /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321A7E14DF45000000F7FB /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BA321A8814DF452E0000F7FB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA321A8714DF452E0000F7FB /* libsqlite3.dylib */; };
+		BA321AB314DF47670000F7FB /* iOrm.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321AAF14DF47670000F7FB /* iOrm.h */; };
+		BA321AB414DF47670000F7FB /* iOrm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321AB014DF47670000F7FB /* iOrm.m */; };
+		BA321AB514DF47670000F7FB /* iOrmSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321AB114DF47670000F7FB /* iOrmSingleton.h */; };
+		BA321AB614DF47670000F7FB /* iOrmSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321AB214DF47670000F7FB /* iOrmSingleton.m */; };
 		CE41190514DC714C00E3A267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
-		CE41190B14DC714C00E3A267 /* iOrm.m in Sources */ = {isa = PBXBuildFile; fileRef = CE41190A14DC714C00E3A267 /* iOrm.m */; };
-		CE41191314DC714C00E3A267 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41191214DC714C00E3A267 /* SenTestingKit.framework */; };
-		CE41191514DC714C00E3A267 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41191414DC714C00E3A267 /* UIKit.framework */; };
-		CE41191614DC714C00E3A267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
-		CE41191914DC714C00E3A267 /* libiOrm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190114DC714C00E3A267 /* libiOrm.a */; };
-		CE41191F14DC714C00E3A267 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE41191D14DC714C00E3A267 /* InfoPlist.strings */; };
-		CE41192214DC714C00E3A267 /* iOrmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE41192114DC714C00E3A267 /* iOrmTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CE41191714DC714C00E3A267 /* PBXContainerItemProxy */ = {
+		BA22964514DF573800B79839 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE4118F814DC714C00E3A267 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CE41190014DC714C00E3A267;
 			remoteInfo = iOrm;
 		};
+		BA22965014DF583B00B79839 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE4118F814DC714C00E3A267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA321A6914DF44D90000F7FB;
+			remoteInfo = fmdb;
+		};
+		BA321A8914DF455A0000F7FB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE4118F814DC714C00E3A267 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA321A6914DF44D90000F7FB;
+			remoteInfo = fmdb;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA22962B14DF55EE00B79839 /* iOrmLogicTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOrmLogicTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA22962D14DF55EE00B79839 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BA22963214DF55EE00B79839 /* iOrmLogicTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOrmLogicTests-Info.plist"; sourceTree = "<group>"; };
+		BA22963414DF55EE00B79839 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BA22963914DF55EE00B79839 /* iOrmLogicTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOrmLogicTests-Prefix.pch"; sourceTree = "<group>"; };
+		BA22963E14DF569900B79839 /* iOrmLogicTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrmLogicTests.h; sourceTree = "<group>"; };
+		BA22963F14DF569900B79839 /* iOrmLogicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOrmLogicTests.m; sourceTree = "<group>"; };
+		BA22964214DF56D900B79839 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		BA22964314DF56D900B79839 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		BA22964B14DF57E800B79839 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		BA321A6A14DF44D90000F7FB /* libfmdb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libfmdb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA321A7614DF45000000F7FB /* fmdb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fmdb_Prefix.pch; path = ../Vendor/fmdb/fmdb_Prefix.pch; sourceTree = "<group>"; };
+		BA321A7814DF45000000F7FB /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BA321A7914DF45000000F7FB /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BA321A7A14DF45000000F7FB /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BA321A7B14DF45000000F7FB /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BA321A7D14DF45000000F7FB /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BA321A7E14DF45000000F7FB /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		BA321A8714DF452E0000F7FB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		BA321AAF14DF47670000F7FB /* iOrm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrm.h; sourceTree = "<group>"; };
+		BA321AB014DF47670000F7FB /* iOrm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOrm.m; sourceTree = "<group>"; };
+		BA321AB114DF47670000F7FB /* iOrmSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrmSingleton.h; sourceTree = "<group>"; };
+		BA321AB214DF47670000F7FB /* iOrmSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOrmSingleton.m; sourceTree = "<group>"; };
 		CE41190114DC714C00E3A267 /* libiOrm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOrm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE41190414DC714C00E3A267 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE41190814DC714C00E3A267 /* iOrm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOrm-Prefix.pch"; sourceTree = "<group>"; };
-		CE41190914DC714C00E3A267 /* iOrm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOrm.h; sourceTree = "<group>"; };
-		CE41190A14DC714C00E3A267 /* iOrm.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOrm.m; sourceTree = "<group>"; };
-		CE41191114DC714C00E3A267 /* iOrmTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOrmTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE41191214DC714C00E3A267 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		CE41191414DC714C00E3A267 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		CE41191C14DC714C00E3A267 /* iOrmTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOrmTests-Info.plist"; sourceTree = "<group>"; };
-		CE41191E14DC714C00E3A267 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CE41192014DC714C00E3A267 /* iOrmTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iOrmTests.h; sourceTree = "<group>"; };
-		CE41192114DC714C00E3A267 /* iOrmTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOrmTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BA22962714DF55EE00B79839 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA22964F14DF583400B79839 /* libsqlite3.dylib in Frameworks */,
+				BA22964E14DF582A00B79839 /* libfmdb.a in Frameworks */,
+				BA22964714DF574600B79839 /* libiOrm.a in Frameworks */,
+				BA22962C14DF55EE00B79839 /* SenTestingKit.framework in Frameworks */,
+				BA22962E14DF55EE00B79839 /* UIKit.framework in Frameworks */,
+				BA22962F14DF55EE00B79839 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA321A6714DF44D90000F7FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA22964C14DF57E800B79839 /* libsqlite3.0.dylib in Frameworks */,
+				BA321A8814DF452E0000F7FB /* libsqlite3.dylib in Frameworks */,
+				BA321A6B14DF44D90000F7FB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE4118FE14DC714C00E3A267 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA22964A14DF577B00B79839 /* libfmdb.a in Frameworks */,
 				CE41190514DC714C00E3A267 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE41190D14DC714C00E3A267 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CE41191314DC714C00E3A267 /* SenTestingKit.framework in Frameworks */,
-				CE41191514DC714C00E3A267 /* UIKit.framework in Frameworks */,
-				CE41191614DC714C00E3A267 /* Foundation.framework in Frameworks */,
-				CE41191914DC714C00E3A267 /* libiOrm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA22963014DF55EE00B79839 /* iOrmLogicTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA22964114DF56D900B79839 /* Models */,
+				BA22963E14DF569900B79839 /* iOrmLogicTests.h */,
+				BA22963F14DF569900B79839 /* iOrmLogicTests.m */,
+				BA22963114DF55EE00B79839 /* Supporting Files */,
+			);
+			path = iOrmLogicTests;
+			sourceTree = "<group>";
+		};
+		BA22963114DF55EE00B79839 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BA22963214DF55EE00B79839 /* iOrmLogicTests-Info.plist */,
+				BA22963314DF55EE00B79839 /* InfoPlist.strings */,
+				BA22963914DF55EE00B79839 /* iOrmLogicTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BA22964114DF56D900B79839 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BA22964214DF56D900B79839 /* User.h */,
+				BA22964314DF56D900B79839 /* User.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BA321A7514DF44E40000F7FB /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				BA321A8714DF452E0000F7FB /* libsqlite3.dylib */,
+				BA321A7614DF45000000F7FB /* fmdb_Prefix.pch */,
+				BA321A7714DF45000000F7FB /* src */,
+			);
+			name = fmdb;
+			sourceTree = "<group>";
+		};
+		BA321A7714DF45000000F7FB /* src */ = {
+			isa = PBXGroup;
+			children = (
+				BA321A7814DF45000000F7FB /* FMDatabase.h */,
+				BA321A7914DF45000000F7FB /* FMDatabase.m */,
+				BA321A7A14DF45000000F7FB /* FMDatabaseAdditions.h */,
+				BA321A7B14DF45000000F7FB /* FMDatabaseAdditions.m */,
+				BA321A7D14DF45000000F7FB /* FMResultSet.h */,
+				BA321A7E14DF45000000F7FB /* FMResultSet.m */,
+			);
+			name = src;
+			path = ../Vendor/fmdb/src;
+			sourceTree = "<group>";
+		};
+		BACC539514DF430C00123759 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				BA321A7514DF44E40000F7FB /* fmdb */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
 		CE4118F614DC714C00E3A267 = {
 			isa = PBXGroup;
 			children = (
+				BA22964B14DF57E800B79839 /* libsqlite3.0.dylib */,
+				BACC539514DF430C00123759 /* Vendor */,
 				CE41190614DC714C00E3A267 /* iOrm */,
-				CE41191A14DC714C00E3A267 /* iOrmTests */,
+				BA22963014DF55EE00B79839 /* iOrmLogicTests */,
 				CE41190314DC714C00E3A267 /* Frameworks */,
 				CE41190214DC714C00E3A267 /* Products */,
 			);
@@ -79,7 +202,8 @@
 			isa = PBXGroup;
 			children = (
 				CE41190114DC714C00E3A267 /* libiOrm.a */,
-				CE41191114DC714C00E3A267 /* iOrmTests.octest */,
+				BA321A6A14DF44D90000F7FB /* libfmdb.a */,
+				BA22962B14DF55EE00B79839 /* iOrmLogicTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,7 +213,7 @@
 			children = (
 				CE41190414DC714C00E3A267 /* Foundation.framework */,
 				CE41191214DC714C00E3A267 /* SenTestingKit.framework */,
-				CE41191414DC714C00E3A267 /* UIKit.framework */,
+				BA22962D14DF55EE00B79839 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -97,8 +221,10 @@
 		CE41190614DC714C00E3A267 /* iOrm */ = {
 			isa = PBXGroup;
 			children = (
-				CE41190914DC714C00E3A267 /* iOrm.h */,
-				CE41190A14DC714C00E3A267 /* iOrm.m */,
+				BA321AAF14DF47670000F7FB /* iOrm.h */,
+				BA321AB014DF47670000F7FB /* iOrm.m */,
+				BA321AB114DF47670000F7FB /* iOrmSingleton.h */,
+				BA321AB214DF47670000F7FB /* iOrmSingleton.m */,
 				CE41190714DC714C00E3A267 /* Supporting Files */,
 			);
 			path = iOrm;
@@ -112,38 +238,69 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CE41191A14DC714C00E3A267 /* iOrmTests */ = {
-			isa = PBXGroup;
-			children = (
-				CE41192014DC714C00E3A267 /* iOrmTests.h */,
-				CE41192114DC714C00E3A267 /* iOrmTests.m */,
-				CE41191B14DC714C00E3A267 /* Supporting Files */,
-			);
-			path = iOrmTests;
-			sourceTree = "<group>";
-		};
-		CE41191B14DC714C00E3A267 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CE41191C14DC714C00E3A267 /* iOrmTests-Info.plist */,
-				CE41191D14DC714C00E3A267 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		BA321A6814DF44D90000F7FB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA321A7F14DF45000000F7FB /* fmdb_Prefix.pch in Headers */,
+				BA321A8014DF45000000F7FB /* FMDatabase.h in Headers */,
+				BA321A8214DF45000000F7FB /* FMDatabaseAdditions.h in Headers */,
+				BA321A8514DF45000000F7FB /* FMResultSet.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE4118FF14DC714C00E3A267 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA321AB314DF47670000F7FB /* iOrm.h in Headers */,
+				BA321AB514DF47670000F7FB /* iOrmSingleton.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		BA22962A14DF55EE00B79839 /* iOrmLogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA22963C14DF55EE00B79839 /* Build configuration list for PBXNativeTarget "iOrmLogicTests" */;
+			buildPhases = (
+				BA22962614DF55EE00B79839 /* Sources */,
+				BA22962714DF55EE00B79839 /* Frameworks */,
+				BA22962814DF55EE00B79839 /* Resources */,
+				BA22962914DF55EE00B79839 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA22965114DF583B00B79839 /* PBXTargetDependency */,
+				BA22964614DF573800B79839 /* PBXTargetDependency */,
+			);
+			name = iOrmLogicTests;
+			productName = iOrmLogicTests;
+			productReference = BA22962B14DF55EE00B79839 /* iOrmLogicTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		BA321A6914DF44D90000F7FB /* fmdb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA321A7214DF44D90000F7FB /* Build configuration list for PBXNativeTarget "fmdb" */;
+			buildPhases = (
+				BA321A6614DF44D90000F7FB /* Sources */,
+				BA321A6714DF44D90000F7FB /* Frameworks */,
+				BA321A6814DF44D90000F7FB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = fmdb;
+			productName = fmdb;
+			productReference = BA321A6A14DF44D90000F7FB /* libfmdb.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		CE41190014DC714C00E3A267 /* iOrm */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE41192514DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrm" */;
@@ -155,30 +312,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				BA321A8A14DF455A0000F7FB /* PBXTargetDependency */,
 			);
 			name = iOrm;
 			productName = iOrm;
 			productReference = CE41190114DC714C00E3A267 /* libiOrm.a */;
 			productType = "com.apple.product-type.library.static";
-		};
-		CE41191014DC714C00E3A267 /* iOrmTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CE41192814DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrmTests" */;
-			buildPhases = (
-				CE41190C14DC714C00E3A267 /* Sources */,
-				CE41190D14DC714C00E3A267 /* Frameworks */,
-				CE41190E14DC714C00E3A267 /* Resources */,
-				CE41190F14DC714C00E3A267 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CE41191814DC714C00E3A267 /* PBXTargetDependency */,
-			);
-			name = iOrmTests;
-			productName = iOrmTests;
-			productReference = CE41191114DC714C00E3A267 /* iOrmTests.octest */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -201,24 +340,25 @@
 			projectRoot = "";
 			targets = (
 				CE41190014DC714C00E3A267 /* iOrm */,
-				CE41191014DC714C00E3A267 /* iOrmTests */,
+				BA321A6914DF44D90000F7FB /* fmdb */,
+				BA22962A14DF55EE00B79839 /* iOrmLogicTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE41190E14DC714C00E3A267 /* Resources */ = {
+		BA22962814DF55EE00B79839 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE41191F14DC714C00E3A267 /* InfoPlist.strings in Resources */,
+				BA22963514DF55EE00B79839 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CE41190F14DC714C00E3A267 /* ShellScript */ = {
+		BA22962914DF55EE00B79839 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -234,37 +374,59 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BA22962614DF55EE00B79839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA22964014DF569900B79839 /* iOrmLogicTests.m in Sources */,
+				BA22964414DF56D900B79839 /* User.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA321A6614DF44D90000F7FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA321A8114DF45000000F7FB /* FMDatabase.m in Sources */,
+				BA321A8314DF45000000F7FB /* FMDatabaseAdditions.m in Sources */,
+				BA321A8614DF45000000F7FB /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE4118FD14DC714C00E3A267 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE41190B14DC714C00E3A267 /* iOrm.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CE41190C14DC714C00E3A267 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CE41192214DC714C00E3A267 /* iOrmTests.m in Sources */,
+				BA321AB414DF47670000F7FB /* iOrm.m in Sources */,
+				BA321AB614DF47670000F7FB /* iOrmSingleton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CE41191814DC714C00E3A267 /* PBXTargetDependency */ = {
+		BA22964614DF573800B79839 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CE41190014DC714C00E3A267 /* iOrm */;
-			targetProxy = CE41191714DC714C00E3A267 /* PBXContainerItemProxy */;
+			targetProxy = BA22964514DF573800B79839 /* PBXContainerItemProxy */;
+		};
+		BA22965114DF583B00B79839 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA321A6914DF44D90000F7FB /* fmdb */;
+			targetProxy = BA22965014DF583B00B79839 /* PBXContainerItemProxy */;
+		};
+		BA321A8A14DF455A0000F7FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA321A6914DF44D90000F7FB /* fmdb */;
+			targetProxy = BA321A8914DF455A0000F7FB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE41191D14DC714C00E3A267 /* InfoPlist.strings */ = {
+		BA22963314DF55EE00B79839 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CE41191E14DC714C00E3A267 /* en */,
+				BA22963414DF55EE00B79839 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -272,6 +434,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BA22963A14DF55EE00B79839 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrmLogicTests/iOrmLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "iOrmLogicTests/iOrmLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		BA22963B14DF55EE00B79839 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iOrmLogicTests/iOrmLogicTests-Prefix.pch";
+				INFOPLIST_FILE = "iOrmLogicTests/iOrmLogicTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		BA321A7314DF44D90000F7FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/fmdb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../Vendor/fmdb/fmdb_Prefix.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BA321A7414DF44D90000F7FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/fmdb.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ../Vendor/fmdb/fmdb_Prefix.pch;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CE41192314DC714C00E3A267 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -338,39 +554,26 @@
 			};
 			name = Release;
 		};
-		CE41192914DC714C00E3A267 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
-				INFOPLIST_FILE = "iOrmTests/iOrmTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		CE41192A14DC714C00E3A267 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "iOrm/iOrm-Prefix.pch";
-				INFOPLIST_FILE = "iOrmTests/iOrmTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BA22963C14DF55EE00B79839 /* Build configuration list for PBXNativeTarget "iOrmLogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA22963A14DF55EE00B79839 /* Debug */,
+				BA22963B14DF55EE00B79839 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BA321A7214DF44D90000F7FB /* Build configuration list for PBXNativeTarget "fmdb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA321A7314DF44D90000F7FB /* Debug */,
+				BA321A7414DF44D90000F7FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE4118FB14DC714C00E3A267 /* Build configuration list for PBXProject "iOrm" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -387,14 +590,7 @@
 				CE41192714DC714C00E3A267 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		CE41192814DC714C00E3A267 /* Build configuration list for PBXNativeTarget "iOrmTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CE41192914DC714C00E3A267 /* Debug */,
-				CE41192A14DC714C00E3A267 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
