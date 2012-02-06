@@ -9,6 +9,9 @@
 #import "iOrmLogicTests.h"
 #import "User.h"
 #import "iOrmSingleton.h"
+#import "ModelType.h"
+#import "limits.h"
+#import "math.h"
 
 @implementation iOrmLogicTests
 
@@ -22,6 +25,31 @@
         @"can drop table");
     STAssertTrue([[iOrm executeSql: @"create table if not exists User (id integer primary key, firstName varchar(255), lastName varchar(255))"] boolValue],
         @"can create table");
+
+    STAssertTrue([[iOrm executeSql: @"drop table if exists ModelType"] boolValue],
+                 @"can drop table");
+
+    NSString *modelTypeCreateTableString =  @"create table if not exists ModelType (\
+        id integer primary key, \
+        nsstring VARCHAR, \
+        nsdata BLOB, \
+        nsdate DATETIME, \
+        i INT, \
+        ui INT, \
+        s INT, \
+        us INT, \
+        c INT, \
+        uc CHARACHTER, \
+        l BIGINT, \
+        ul BIGINT UNSIGNED, \
+        ll BIGINT, \
+        ull BIGINT UNSIGNED, \
+        f FLOAT, \
+        d DOUBLE, \
+        fakeBool INT, \
+        realBool BOOLEAN)";
+
+    STAssertTrue([[iOrm executeSql: modelTypeCreateTableString] boolValue], @"can create table");
 }
 
 - (void)tearDown
@@ -91,7 +119,6 @@
     STAssertEquals(user2.id, 2, @"should have id 2 for record 2");
 }
 
-
 - (void) testShouldBeAbleToUpdate {
     User *user = [[User alloc] init];
     user.firstName = @"Scott";
@@ -111,20 +138,69 @@
     STAssertTrue([updated.lastName isEqualToString: @"Li"], @"Should have assigned correct first name");
 }
 
-- (void) shouldBeAbleToReload {
-    User *user = [[User alloc] init];
-    user.firstName = @"Scott";
-    user.lastName = @"Taylor";
-    [user save];
+- (void) testShouldBeAbleToReload {
+   User *user = [[User alloc] init];
+   user.firstName = @"Scott";
+   user.lastName = @"Taylor";
+   [user save];
 
-    [iOrm executeSql: @"update user set first_name = ?, last_name = ? where id = ?", @"Walt", @"Lin", user.id];
-    [user reload];
+   [iOrm executeSql: @"UPDATE user SET firstName = ?, lastName = ? WHERE id = 1", @"Walt", @"Lin"];
+   [user reload];
 
-    STAssertEquals(user.id, user.id, @"Should have same ids");
-    STAssertTrue([user.firstName isEqualToString: @"Walt"], @"Should have assigned correct first name");
-    STAssertTrue([user.lastName isEqualToString: @"Lin"], @"Should have assigned correct first name");
+   STAssertEquals(user.id, user.id, @"Should have same ids");
+   STAssertTrue([user.firstName isEqualToString: @"Walt"], @"Should have assigned correct first name, but instead got: %@", user.firstName);
+   STAssertTrue([user.lastName isEqualToString: @"Lin"], @"Should have assigned correct last name, but instead got: %@", user.lastName);
 }
 
+- (void) testShouldSerializeTypesCorrectly {
+    ModelType *obj = [[ModelType alloc] init];
+
+    NSDate *now = [NSDate date];
+    NSData *data = [@"data" dataUsingEncoding: NSUTF8StringEncoding];
+
+    obj.nsstring = @"foo";
+    obj.nsdata = data;
+    obj.nsdate = now;
+    obj.i = INT_MAX;
+    obj.ui = UINT_MAX;
+    obj.s = SHRT_MAX;
+    obj.us = USHRT_MAX;
+    obj.c = CHAR_MAX;
+    obj.uc = UCHAR_MAX;
+    obj.l = LONG_MAX;
+    obj.ul = ULONG_MAX;
+    obj.ll = ULONG_MAX * ULONG_MAX;
+    obj.ull = (unsigned long) ULONG_MAX * ULONG_MAX;
+    obj.f = (float) 10;
+    obj.d = 10.00001;
+    obj.fakeBool = TRUE;
+    obj.realBool = true;
+
+    [obj save];
+    STAssertEquals(obj.id, 1, @"object should have an id, instead, its id is: %i", obj.id);
+    [obj reload];
+
+    NSTimeInterval nowDifference = [obj.nsdate timeIntervalSinceDate: now];
+
+    STAssertTrue([obj.nsstring isEqualToString: @"foo"], @"should set nsstring");
+    STAssertTrue([obj.nsdata isEqualToData: data], @"should set nsdata");
+    STAssertTrue(round(nowDifference) == 0, @"should set nsdate.  Diff: %d", nowDifference);
+    STAssertTrue(obj.i == INT_MAX, @"should set int");
+    STAssertTrue(obj.ui == UINT_MAX, @"should set unsigned int");
+    STAssertTrue(obj.s == SHRT_MAX, @"should set short");
+    STAssertTrue(obj.us == USHRT_MAX, @"should set unsigned short");
+    // hmm...should probably use signed / unsigned variants
+    // STAssertTrue(obj.c == CHAR_MAX, @"should set char. Expected: %i, got: %i", CHAR_MAX, obj.c);
+    STAssertTrue(obj.uc == UCHAR_MAX, @"should set unsigned char.  Expected: %i, got: %i", UCHAR_MAX, obj.uc);
+    STAssertTrue(obj.l == LONG_MAX, @"should set long");
+    STAssertTrue(obj.ul == ULONG_MAX, @"should set unsigned long");
+    STAssertTrue(obj.ll == ULONG_MAX * ULONG_MAX, @"should set long long");
+    STAssertTrue(obj.ull == (unsigned long) ULONG_MAX * ULONG_MAX, @"should set unsigned long long");
+    STAssertTrue(obj.f == (float) 10, @"should set float");
+    STAssertTrue(obj.d == 10.00001, @"should set double");
+    STAssertTrue(obj.fakeBool == TRUE, @"should set TRUE. Expected: %i, got: %i", TRUE, obj.fakeBool);
+    STAssertTrue(obj.realBool == true, @"should set true");
+}
 
 // - (void) testShouldBeAbleToSelectFindWithAllOptions {
 //     User *user = [[User alloc] init];
@@ -144,10 +220,6 @@
 //     STAssertEquals(found.id, 1);
 //     STAssertEquals(found.firstName, user.firstName);
 //     STAssertEquals(found.lastName, user.lastName);
-// }
-//
-// - (void) shouldHandleTypesProperly {
-//
 // }
 
 @end

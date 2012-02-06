@@ -31,6 +31,7 @@
 		BA321AB414DF47670000F7FB /* iOrm.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321AB014DF47670000F7FB /* iOrm.m */; };
 		BA321AB514DF47670000F7FB /* iOrmSingleton.h in Headers */ = {isa = PBXBuildFile; fileRef = BA321AB114DF47670000F7FB /* iOrmSingleton.h */; };
 		BA321AB614DF47670000F7FB /* iOrmSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = BA321AB214DF47670000F7FB /* iOrmSingleton.m */; };
+		BA3B16B614DFA2B900BAE45E /* ModelType.m in Sources */ = {isa = PBXBuildFile; fileRef = BA3B16B514DFA2B900BAE45E /* ModelType.m */; };
 		CE41190514DC714C00E3A267 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE41190414DC714C00E3A267 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		BA321AB014DF47670000F7FB /* iOrm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOrm.m; sourceTree = "<group>"; };
 		BA321AB114DF47670000F7FB /* iOrmSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOrmSingleton.h; sourceTree = "<group>"; };
 		BA321AB214DF47670000F7FB /* iOrmSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOrmSingleton.m; sourceTree = "<group>"; };
+		BA3B16B414DFA2B900BAE45E /* ModelType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelType.h; sourceTree = "<group>"; };
+		BA3B16B514DFA2B900BAE45E /* ModelType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelType.m; sourceTree = "<group>"; };
 		CE41190114DC714C00E3A267 /* libiOrm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libiOrm.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE41190414DC714C00E3A267 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE41190814DC714C00E3A267 /* iOrm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOrm-Prefix.pch"; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 			children = (
 				BA22964214DF56D900B79839 /* User.h */,
 				BA22964314DF56D900B79839 /* User.m */,
+				BA3B16B414DFA2B900BAE45E /* ModelType.h */,
+				BA3B16B514DFA2B900BAE45E /* ModelType.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -380,6 +385,7 @@
 			files = (
 				BA22964014DF569900B79839 /* iOrmLogicTests.m in Sources */,
 				BA22964414DF56D900B79839 /* User.m in Sources */,
+				BA3B16B614DFA2B900BAE45E /* ModelType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +570,7 @@
 				BA22963B14DF55EE00B79839 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA321A7214DF44D90000F7FB /* Build configuration list for PBXNativeTarget "fmdb" */ = {
 			isa = XCConfigurationList;

@@ -17,36 +17,60 @@
 
 @synthesize id;
 
-static NSString *__table_name__;
-static NSArray *__columns__;
+static NSMutableDictionary *__tablesMetadata__ = nil;
 
 @interface iOrm (Private)
 + (int) __findQueryCount__:  (NSString *) stmt;
++ (NSArray *) __findColumnTypesFromColumns__: (NSArray *) columns;
 - (void) __setNewRecord__: (BOOL) val;
 @end
+
+enum iOrmColumnTypes {
+    iOrmColumnTypesNSString = 1,
+    iOrmColumnTypesNSDate,
+    iOrmColumnTypesNSData,
+    iOrmColumnTypesInt,
+    iOrmColumnTypesBoolean,
+    iOrmColumnTypesChar,
+    iOrmColumnTypesLong,
+    iOrmColumnTypesLongLong,
+    iOrmColumnTypesFloat,
+};
+
++ (void) initialize {
+    if (!__tablesMetadata__) {
+        __tablesMetadata__ = [NSMutableDictionary dictionary];
+    }
+}
 
 + (FMDatabase *) connection {
     return [iOrmSingleton connection];
 }
 
 + (NSString *) tableName {
-    if (__table_name__) {
-        return __table_name__;
-    }
+    return NSStringFromClass(self);
+}
 
-    __table_name__ = NSStringFromClass(self);
-    return __table_name__;
++ (NSArray *) columnTypes {
+    NSString *tableName = [self tableName];
+    return [[__tablesMetadata__ objectForKey: tableName] objectForKey: @"column_types"];
 }
 
 // lazy load column names in __columns__
 + (NSArray *) columns {
-    if (__columns__) {
-        return __columns__;
+    NSString *tableName = [self tableName];
+    NSDictionary *info;
+    NSArray *columnNames;
+
+    if ((info = [__tablesMetadata__ objectForKey: tableName])) {
+        columnNames = [info objectForKey: @"columns"];
+
+        if (columnNames) {
+            return columnNames;
+        }
     }
 
     NSMutableArray *columns = [NSMutableArray arrayWithCapacity: 1];
-
-    NSString *tableName = [self tableName];
 
     FMResultSet *results = [self executeSql: @"select sql from sqlite_master where tbl_name = ?", tableName];
     NSString *createTableStatement;
@@ -69,17 +93,94 @@ static NSArray *__columns__;
     NSArray *columnsWithTypes = [createTableSubstring componentsSeparatedByString: @", "];
 
     for (NSString *columnWithType in columnsWithTypes) {
-        NSArray *columnAndTypeSplit = [columnWithType componentsSeparatedByString: @" "];
+        NSArray *columnAndTypeSplit = [[columnWithType stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
+            componentsSeparatedByString: @" "];
         NSString *columnName = [columnAndTypeSplit objectAtIndex: 0];
         [columns addObject: columnName];
     }
 
-    __columns__ = [columns copy];
-    return __columns__;
+    NSArray *columnsCopy = [columns copy];
+    NSArray *columnTypes = [self __findColumnTypesFromColumns__: columnsCopy];
+    NSMutableDictionary *tableData = [NSMutableDictionary dictionary];
+    [tableData setObject: columnsCopy forKey: @"columns"];
+    [tableData setObject: columnTypes forKey: @"column_types"];
+    [__tablesMetadata__ setObject: [tableData copy] forKey: tableName];
+    return columnsCopy;
 }
 
-+ (void) reloadColumns {
-    __columns__ = nil;
++ (NSArray *) __findColumnTypesFromColumns__: (NSArray *) columns {
+    NSMutableArray *columnTypes = [NSMutableArray array];
+
+    int columnIndex = 0;
+    for (NSString *columnName in columns) {
+        int columnType;
+
+        struct objc_property *prop = class_getProperty(self, [columnName UTF8String]);
+        const char *propString = property_getAttributes(prop);
+        const char *strOffset;
+
+        switch(propString[1]) {
+            case '@':
+                strOffset = &propString[3];
+                if (strstr(strOffset, "NSString") == strOffset) {
+                    columnType = iOrmColumnTypesNSString;
+                } else if (strstr(strOffset, "NSDate") == strOffset) {
+                    columnType = iOrmColumnTypesNSDate;
+                } else if (strstr(strOffset, "NSData") == strOffset) {
+                    columnType = iOrmColumnTypesNSData;
+                } else {
+                    [NSException raise: @"UnsupportedColumnType" format: @"Unsupported column type for column: `%@`", columnName];
+                }
+            break;
+
+            case 'i': // int
+            case 'I': // unsigned int
+            case 's': // short
+            case 'S': // unsigned short
+                columnType = iOrmColumnTypesInt;
+            break;
+
+            case 'B':
+                columnType = iOrmColumnTypesBoolean;
+            break;
+
+            case 'c': // char
+            case 'C': // unsigned char
+                columnType = iOrmColumnTypesChar;
+            break;
+
+            case '*': // char * - not supported, because NSKeyValueCoding doesn't support it
+                [NSException raise: @"UnsupportedColumnType" format: @"char * is not a supported column type.  Use NSString * instead"];
+            break;
+
+            case 'l': // long
+            case 'L': // unsigned long
+                columnType = iOrmColumnTypesLong;
+            break;
+
+            case 'q': // long long
+            case 'Q': // unsigned long long
+                columnType = iOrmColumnTypesLongLong;
+            break;
+
+            case 'f': // float
+            case 'd': // double
+                columnType = iOrmColumnTypesFloat;
+            break;
+
+            default:
+                [NSException raise: @"UnsupportedColumnType" format: @"Unsupported type for columnName: %@", columnName];
+        }
+
+        [columnTypes addObject: [NSNumber numberWithInteger: columnType]];
+        columnIndex++;
+    }
+
+    return [columnTypes copy];
+}
+
++ (void) reloadTableData {
+    [__tablesMetadata__ removeObjectForKey: [self tableName]];
     [self columns];
 }
 
@@ -90,15 +191,14 @@ static NSArray *__columns__;
     return sqlite3_bind_parameter_count(pStmt);
 }
 
-// Any SELECT returns NSArray *, everyhting else returns BOOL
+// Any SELECT returns NSArray *, every thing else returns BOOL
 + (id) executeSql: (NSString *) sqlString, ... {
     int queryCount = [self __findQueryCount__: sqlString];
-
     NSMutableArray *array = [NSMutableArray arrayWithCapacity: 1];
     va_list args;
     va_start(args, sqlString);
     for (int i = 0; i < queryCount; i++) {
-        NSString *arg = va_arg(args, NSString *);
+        id arg = va_arg(args, id);
         [array addObject: arg];
     }
 
@@ -125,8 +225,6 @@ static NSArray *__columns__;
 
 + (NSArray *) findBySql: (NSString *) sqlString, ... {
     int queryCount = [self __findQueryCount__: sqlString];
-    NSLog(@"queryCount: %i", queryCount);
-
     NSMutableArray *array = [NSMutableArray arrayWithCapacity: queryCount];
     va_list args;
     va_start(args, sqlString);
@@ -145,88 +243,59 @@ static NSArray *__columns__;
     FMResultSet *results = [self executeSql: sqlString args: args];
     NSMutableArray *newCollection = [NSMutableArray arrayWithCapacity: 1];
     NSArray *columns = [self columns];
+    NSArray *columnTypes = [self columnTypes];
 
-    while(1) {
-        if ([results next]) {
-            iOrm *obj = [[[self class] alloc] init];
-            [obj __setNewRecord__: NO];
+    while([results next]) {
+        iOrm *obj = [[[self class] alloc] init];
+        [obj __setNewRecord__: NO];
 
-            int columnIndex = 0;
-            for (NSString *columnName in columns) {
-                struct objc_property *prop = class_getProperty(self, [columnName UTF8String]);
-                const char *propString = property_getAttributes(prop);
-                const char *strOffset;
+        int columnIndex = 0;
+        for (NSString *columnName in columns) {
+            int columnType = [[columnTypes objectAtIndex: columnIndex] intValue];
 
-                switch(propString[1]) {
-                    case '@':
-                        strOffset = &propString[3];
+            switch (columnType) {
+                case iOrmColumnTypesNSString:
+                    [obj setValue: [results stringForColumnIndex: columnIndex] forKey: columnName];
+                break;
 
-                        if (strstr(strOffset, "NSString") == strOffset) {
-                            NSLog(@"setting %@ to %@", columnName, [results stringForColumnIndex: columnIndex]);
-                            [obj setValue: [results stringForColumnIndex: columnIndex] forKey: columnName];
-                        } else if (strstr(strOffset, "NSDate") == propString) {
-                            [obj setValue: [results dateForColumnIndex: columnIndex] forKey: columnName];
-                        } else if (strstr(strOffset, "NSData") == propString) {
-                            [obj setValue: [results dataForColumnIndex: columnIndex] forKey: columnName];
-                        } else if (strstr(strOffset, "NSBoolean") == propString) {
-                            [obj setValue: [NSNumber numberWithBool: [results boolForColumnIndex: columnIndex]] forKey: columnName];
-                        }  else {
-                            [NSException raise: @"UnsupportedColumnType" format: @"Unsupported column type for column: `%@`", columnName];
-                        }
-                    break;
+                case iOrmColumnTypesNSDate:
+                    [obj setValue: [results dateForColumnIndex: columnIndex] forKey: columnName];
+                break;
 
-                    case 'i': // int
-                    case 'I': // unsigned int
-                    case 's': // short
-                    case 'S': // unsigned short
-                        [obj setValue: [NSNumber numberWithInt: [results intForColumnIndex: columnIndex]] forKey: columnName];
-                    break;
+                case iOrmColumnTypesNSData:
+                    [obj setValue: [results dataForColumnIndex: columnIndex] forKey: columnName];
+                break;
 
-                    case 'B':
-                        [obj setValue: [NSNumber numberWithBool: [results boolForColumnIndex: columnIndex]] forKey: columnName];
-                    break;
+                case iOrmColumnTypesInt:
+                    [obj setValue: [NSNumber numberWithInt: [results intForColumnIndex: columnIndex]] forKey: columnName];
+                break;
 
-                    // case 'c': // char
-                    // case 'C': // unsigned char
-                    //     [obj setValue: [[results stringForColumnIndex: columnIndex] UTF8String][0] forKey: columnName];
-                    // break;
-                    //
-                    // case '*': // char *
-                    //     [obj setValue: [[results stringForColumnIndex: columnIndex] UTF8String] forKey: columnName];
-                    // break;
-                    //
-                    // case 'l': // long
-                    // case 'L': // unsigned long
-                    //     [obj setValue: [results longForColumnIndex: columnIndex] forKey: columnName];
-                    // break;
-                    //
-                    // case 'q': // long long
-                    // case 'Q': // unsigned long long
-                    //     [obj setValue: [results longLongForColumnIndex: columnIndex] forKey: columnName];
-                    // break;
-                    //
-                    // case 'f': // float
-                    // case 'd': // double
-                    //     [obj setValue: [results doubleForColumnIndex: columnIndex] forKey: columnName];
-                    // break;
+                case iOrmColumnTypesBoolean:
+                    [obj setValue: [NSNumber numberWithBool: [results boolForColumnIndex: columnIndex]] forKey: columnName];
+                break;
 
-                    default:
-                        [NSException raise: @"UnsupportedColumnType" format: @"Unsupported type for columnName: %@", columnName];
-                }
+                case iOrmColumnTypesChar:
+                    [obj setValue: [NSNumber numberWithChar: [results intForColumnIndex: columnIndex]] forKey: columnName];
+                break;
 
-                columnIndex++;
+                case iOrmColumnTypesLong:
+                    [obj setValue: [NSNumber numberWithLong:[results longForColumnIndex: columnIndex]] forKey: columnName];
+                break;
+
+                case iOrmColumnTypesLongLong:
+                    [obj setValue: [NSNumber numberWithLongLong: [results longLongIntForColumnIndex: columnIndex]] forKey: columnName];
+                break;
+
+                case iOrmColumnTypesFloat:
+                    [obj setValue: [NSNumber numberWithDouble:[results doubleForColumnIndex: columnIndex]] forKey: columnName];
+                break;
             }
 
-            [newCollection addObject: obj];
-        } else {
-            NSLog(@"no next result!");
-            NSLog(@"sqlString: %@", sqlString);
-            NSLog(@"args: %@", args);
-            break;
+            columnIndex++;
         }
-    }
 
-    NSLog(@"newCollection: %@", newCollection);
+        [newCollection addObject: obj];
+    }
 
     return [newCollection copy];
 }
@@ -265,15 +334,11 @@ static NSArray *__columns__;
         }
     }
 
-    NSLog(@"columnNames: %@", columnNames);
-
     NSMutableArray *values = [NSMutableArray arrayWithCapacity: [columnNames count]];
 
     for (id columnName in columnNames) {
         [values addObject: [self valueForKey: columnName]];
     }
-
-    NSLog(@"values: %@", values);
 
     if ([self isNewRecord]) {
         int count = [columnNames count];
@@ -288,8 +353,6 @@ static NSArray *__columns__;
             }
         }
 
-        NSLog(@"valuesString: %@", valuesString);
-
         sqlString = [NSString stringWithFormat: @"INSERT INTO %@ (%@) VALUES (%@)", tableName, columnNamesString, valuesString];
     } else {
         NSMutableArray *columnsAndValues = [NSMutableArray arrayWithCapacity: [columns count]];
@@ -301,8 +364,6 @@ static NSArray *__columns__;
         NSString *columnsAndValuesString = [columnsAndValues componentsJoinedByString: @", "];
 
         sqlString = [NSString stringWithFormat: @"UPDATE %@ SET %@ WHERE id = %i", tableName, columnsAndValuesString, self.id];
-        NSLog(@"sqlString: %@", sqlString);
-        NSLog(@"values: %@", values);
     }
 
     resultNum = [[self class] executeSql: sqlString args: values];
@@ -321,9 +382,21 @@ static NSArray *__columns__;
 - (void) reload {
     // [self where: [NSArray arrayWithObjects: @"id = %", self.id]
     //       limit: 1];
-    id obj = [[self class] findBySql: @"select * from ? where id = ? limit 1", [[self class] tableName], self.id];
+    NSString *query = [NSString stringWithFormat: @"select * from %@ where id = %i limit 1", [[self class] tableName], self.id];
+    NSArray *objects = [[self class] findBySql: query];
+    FMDatabase *conn = [[self class] connection];
+
+    if ([objects count] == 0) {
+        [NSException raise: @"ReloadError" format: @"Could not reload object.  last_error: \"%@\"", [conn lastErrorMessage]];
+    }
+
+    iOrm *obj = [objects objectAtIndex: 0];
     for (NSString *col in [[self class] columns]) {
-        [self setValue: [obj valueForKey: col] forKey: col];
+        if ([col isEqualToString: @"id"]) {
+            self.id = obj.id;
+        } else {
+            [self setValue: [obj valueForKey: col] forKey: col];
+        }
     }
 }
 

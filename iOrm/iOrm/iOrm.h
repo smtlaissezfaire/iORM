@@ -19,7 +19,7 @@
 + (FMDatabase *) connection;
 + (NSString *) tableName;
 + (NSArray *) columns;
-+ (void) reloadColumns;
++ (void) reloadTableData;
 + (id) executeSql: (NSString *) sqlString, ...;
 + (id) executeSql: (NSString *) sqlString args: (NSArray *) args;
 + (NSArray *) findBySql: (NSString *) sqlString, ...;
