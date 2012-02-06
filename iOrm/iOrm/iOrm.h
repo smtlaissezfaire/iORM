@@ -19,14 +19,18 @@
 + (FMDatabase *) connection;
 + (NSString *) tableName;
 + (NSArray *) columns;
++ (void) reloadColumns;
 + (id) executeSql: (NSString *) sqlString, ...;
 + (id) executeSql: (NSString *) sqlString args: (NSArray *) args;
 + (NSArray *) findBySql: (NSString *) sqlString, ...;
 + (NSArray *) findBySql: (NSString *) sqlString args: (NSArray *) args;
 
 - (BOOL) isNewRecord;
-- (void) __setNewRecord__: (BOOL) val;
 - (BOOL) save;
 - (void) reload;
+@end
 
+@interface iOrm (Private)
++ (int) __findQueryCount__:  (NSString *) stmt;
+- (void) __setNewRecord__: (BOOL) val;
 @end
