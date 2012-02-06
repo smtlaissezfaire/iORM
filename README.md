@@ -51,6 +51,11 @@ Usage:
     // - this will not cast the objects back into a type, so you'll get a raw FMResultSet back
     // - anything other than a select just returns a BOOL = true.  Query errors NSException raise:format:
 
+### Close the db connection:
+
+    [iOrmSingleton closeConnection];
+
+
 Conventions:
 ------------
 
@@ -58,3 +63,10 @@ Conventions:
 * id field is always named "id"
 * column names = property names (only the properties with equivalent column names will be saved)
 * db is always named db.sqlite3 (although can be set [iOrmSingleton setupConnectionWithPath])
+
+Running Tests
+-------------
+
+1. Open this xcode project
+2. Select the "iOrmLogicTests" + "iPhone Simulator" target from the toolbar
+3. Press CMD-U to run the tests
