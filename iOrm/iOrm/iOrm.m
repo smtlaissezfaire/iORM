@@ -20,6 +20,11 @@
 static NSString *__table_name__;
 static NSArray *__columns__;
 
+@interface iOrm (Private)
++ (int) __findQueryCount__:  (NSString *) stmt;
+- (void) __setNewRecord__: (BOOL) val;
+@end
+
 + (FMDatabase *) connection {
     return [iOrmSingleton connection];
 }
