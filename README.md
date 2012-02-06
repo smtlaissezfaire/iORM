@@ -1,11 +1,13 @@
 
-== iOrm
+iOrm
+====
 
 The basics of an ActiveRecord clone in Objective C (with hopefully less magic).
 
-== Usage:
+Usage:
+------
 
-    // User.h
+### User.h
 
     #import "iOrm.h"
 
@@ -19,7 +21,7 @@ The basics of an ActiveRecord clone in Objective C (with hopefully less magic).
 
     @end
 
-    // User.m
+### User.m
 
     #import "User.h"
 
@@ -28,7 +30,7 @@ The basics of an ActiveRecord clone in Objective C (with hopefully less magic).
     @synthesize lastName;
     @end
 
-    // Usage:
+### Usage - saving + updating:
 
     User *user = [[User alloc] init];
     user.firstName = @"Scott";
@@ -37,21 +39,22 @@ The basics of an ActiveRecord clone in Objective C (with hopefully less magic).
 
     user.id //=> 1
 
-    // querying:
+### Querying:
 
     NSArray *results = [User findBySql: @"firstName = ?", @"Scott"];
     [results count] //=> 1
     User *user = [results objectAtIndex: 0];
     user.firstName // => @"Scott"
 
-    // executing raw sql:
+### Executing raw sql:
     [iOrm executeSql: @"select * from user where first_name = ?", @"Scott"];
     // - this will not cast the objects back into a type, so you'll get a raw FMResultSet back
     // - anything other than a select just returns a BOOL = true.  Query errors NSException raise:format:
 
-== Conventions:
+Conventions:
+------------
 
 * table name = class name (so 'user' for the 'User' class)
 * id field is always named "id"
-* column names = property names
+* column names = property names (only the properties with equivalent column names will be saved)
 * db is always named db.sqlite3 (although can be set [iOrmSingleton setupConnectionWithPath])
